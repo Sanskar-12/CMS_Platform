@@ -21,7 +21,6 @@ import { toast } from "@/components/ui/use-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import AlertModal from "@/components/modals/alert-modal";
-import { useOrigin } from "@/hooks/use-origin";
 import { Billboard } from "@prisma/client";
 import ImageUpload from "@/components/image-upload";
 
@@ -60,10 +59,18 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
   const onSubmit = async (data: BillboardFormValues) => {
     try {
       setLoading(true);
-      await axios.patch(`/api/stores/${params.storeId}`, data);
+      if (initialData) {
+        await axios.patch(
+          `/api/${params.storeId}/billboards/${params.billboardId}`,
+          data
+        );
+      } else {
+        await axios.post(`/api/${params.storeId}/billboards`, data);
+      }
       router.refresh();
+      router.push(`/${params.storeId}/billboards`);
       toast({
-        title: "Store updated",
+        title: `${toastMessage}`,
       });
     } catch (error) {
       toast({
@@ -77,16 +84,18 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/stores/${params.storeId}`);
+      await axios.delete(
+        `/api/${params.storeId}/billboards/${params.billboardId}`
+      );
       router.refresh();
       router.push("/");
       toast({
-        title: "Store deleted",
+        title: "Billboard deleted",
       });
     } catch (error) {
       toast({
         title:
-          "Make sure you removed all products and categories from the store.",
+          "Make sure you removed all categories using this billboard first.",
       });
     } finally {
       setLoading(false);
