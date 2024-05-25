@@ -3,12 +3,12 @@
 import Heading from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Billboard } from "@prisma/client";
 import { Plus } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import React from "react";
 import { BillboardColumn, columns } from "./columns";
 import { DataTable } from "@/components/data-table";
+import ApiList from "@/components/api-list";
 
 interface BillboardClientProps {
   data: BillboardColumn[];
@@ -22,7 +22,7 @@ const BillboardClient = ({ data }: BillboardClientProps) => {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title="Billboards (0)"
+          title={`Billboards (${data.length})`}
           description="Manage billboards for your store"
         />
         <Button
@@ -34,6 +34,10 @@ const BillboardClient = ({ data }: BillboardClientProps) => {
       </div>
       <Separator />
       <DataTable searchKey="label" columns={columns} data={data} />
+      <Separator />
+      <Heading title="API" description="API calls for Billboards" />
+      <Separator />
+      <ApiList entityIdName="billboardId" entityName="billboards" />
     </>
   );
 };

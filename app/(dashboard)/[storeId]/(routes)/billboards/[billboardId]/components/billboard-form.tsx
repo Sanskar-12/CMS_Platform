@@ -67,8 +67,8 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
       } else {
         await axios.post(`/api/${params.storeId}/billboards`, data);
       }
-      router.refresh();
       router.push(`/${params.storeId}/billboards`);
+      router.refresh();
       toast({
         title: `${toastMessage}`,
       });
@@ -87,8 +87,8 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
       await axios.delete(
         `/api/${params.storeId}/billboards/${params.billboardId}`
       );
+      router.push(`/${params.storeId}/billboards`);
       router.refresh();
-      router.push("/");
       toast({
         title: "Billboard deleted",
       });
@@ -173,7 +173,6 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
           </Button>
         </form>
       </Form>
-      <Separator />
     </>
   );
 };
