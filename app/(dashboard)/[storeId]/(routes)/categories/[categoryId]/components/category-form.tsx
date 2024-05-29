@@ -66,13 +66,13 @@ const CategoryForm = ({ initialData, billboards }: CategoryFormProps) => {
       setLoading(true);
       if (initialData) {
         await axios.patch(
-          `/api/${params.storeId}/billboards/${params.billboardId}`,
+          `/api/${params.storeId}/categories/${params.categoryId}`,
           data
         );
       } else {
-        await axios.post(`/api/${params.storeId}/billboards`, data);
+        await axios.post(`/api/${params.storeId}/categories`, data);
       }
-      router.push(`/${params.storeId}/billboards`);
+      router.push(`/${params.storeId}/categories`);
       router.refresh();
       toast({
         title: `${toastMessage}`,
@@ -90,17 +90,17 @@ const CategoryForm = ({ initialData, billboards }: CategoryFormProps) => {
     try {
       setLoading(true);
       await axios.delete(
-        `/api/${params.storeId}/billboards/${params.billboardId}`
+        `/api/${params.storeId}/categories/${params.categoryId}`
       );
-      router.push(`/${params.storeId}/billboards`);
+      router.push(`/${params.storeId}/categories`);
       router.refresh();
       toast({
-        title: "Billboard deleted",
+        title: "Category deleted",
       });
     } catch (error) {
       toast({
         title:
-          "Make sure you removed all categories using this billboard first.",
+          "Make sure you removed all products using this categories first.",
       });
     } finally {
       setLoading(false);
@@ -176,7 +176,7 @@ const CategoryForm = ({ initialData, billboards }: CategoryFormProps) => {
                     </FormControl>
                     <SelectContent>
                       {billboards.map((billboard) => (
-                        <SelectItem key={billboard.id} value={billboard.label}>
+                        <SelectItem key={billboard.id} value={billboard.id}>
                           {billboard.label}
                         </SelectItem>
                       ))}
