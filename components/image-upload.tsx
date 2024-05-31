@@ -26,15 +26,12 @@ const ImageUpload = ({
   }, []);
 
   const onUpload = (result: any) => {
-    console.log(result, "upload");
     onChange(result.info.secure_url);
   };
 
   if (!isMounted) {
     return null;
   }
-
-  console.log(value);
 
   return (
     <div>
