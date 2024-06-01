@@ -95,6 +95,7 @@ const ProductForm = ({
   const onSubmit = async (data: ProductFormValues) => {
     try {
       setLoading(true);
+      console.log(data);
       if (initialData) {
         await axios.patch(
           `/api/${params.storeId}/products/${params.productId}`,
@@ -174,6 +175,7 @@ const ProductForm = ({
                   <FormControl>
                     <ImageUpload
                       value={field.value.map((image) => {
+                        console.log(field.value);
                         return image.url;
                       })}
                       disabled={loading}

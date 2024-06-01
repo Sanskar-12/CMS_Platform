@@ -55,7 +55,7 @@ const ImageUpload = ({
         ))}
       </div>
       <CldUploadWidget
-        onSuccess={onUpload}
+        onUpload={onUpload}
         uploadPreset="n63wdxve"
         options={{
           multiple: true,
