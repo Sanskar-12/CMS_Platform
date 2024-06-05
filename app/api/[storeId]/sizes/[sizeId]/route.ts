@@ -7,11 +7,11 @@ export async function GET(
   { params: { sizeId } }: { params: { sizeId: string } }
 ) {
   try {
-    const { userId } = auth();
+    // const { userId } = auth();
 
-    if (!userId) {
-      return new NextResponse("Unauthenticated", { status: 400 });
-    }
+    // if (!userId) {
+    //   return new NextResponse("Unauthenticated", { status: 400 });
+    // }
 
     const size = await prismadb.size.findUnique({
       where: {

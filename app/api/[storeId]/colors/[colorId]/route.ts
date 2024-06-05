@@ -7,11 +7,11 @@ export async function GET(
   { params: { colorId } }: { params: { colorId: string } }
 ) {
   try {
-    const { userId } = auth();
+    // const { userId } = auth();
 
-    if (!userId) {
-      return new NextResponse("Unauthenticated", { status: 400 });
-    }
+    // if (!userId) {
+    //   return new NextResponse("Unauthenticated", { status: 400 });
+    // }
 
     const color = await prismadb.color.findUnique({
       where: {

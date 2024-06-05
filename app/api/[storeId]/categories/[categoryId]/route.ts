@@ -7,11 +7,11 @@ export async function GET(
   { params: { categoryId } }: { params: { categoryId: string } }
 ) {
   try {
-    const { userId } = auth();
+    // const { userId } = auth();
 
-    if (!userId) {
-      return new NextResponse("Unauthenticated", { status: 400 });
-    }
+    // if (!userId) {
+    //   return new NextResponse("Unauthenticated", { status: 400 });
+    // }
 
     const category = await prismadb.category.findUnique({
       where: {

@@ -7,11 +7,11 @@ export async function GET(
   { params: { billboardId } }: { params: { billboardId: string } }
 ) {
   try {
-    const { userId } = auth();
+    // const { userId } = auth();
 
-    if (!userId) {
-      return new NextResponse("Unauthenticated", { status: 400 });
-    }
+    // if (!userId) {
+    //   return new NextResponse("Unauthenticated", { status: 400 });
+    // }
 
     const billboard = await prismadb.billboard.findUnique({
       where: {
