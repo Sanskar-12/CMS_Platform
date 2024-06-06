@@ -95,17 +95,17 @@ export async function GET(
     const sizeId = searchParams.get("sizeId") || undefined;
     const isFeatured = searchParams.get("isFeatured");
 
+
     if (!storeId) {
       return new NextResponse("Store Id is Required", { status: 400 });
     }
 
     const products = await prismadb.product.findMany({
       where: {
-        storeId,
         categoryId,
         colorId,
         sizeId,
-        isFeatured: isFeatured ? true : undefined,
+        isFeatured: true,
         isArchived: false,
       },
       include: {
@@ -118,6 +118,8 @@ export async function GET(
         createdAt: "desc",
       },
     });
+
+    console.log(products)
 
     return NextResponse.json(products);
   } catch (error) {
