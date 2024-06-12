@@ -61,18 +61,19 @@
 
 # To clone the repository, use the following command:
 
-```bash
-git clone https://github.com/Sanskar-12/CMS_Platform.git
-```
+1. ```bash
+    git clone https://github.com/Sanskar-12/CMS_Platform.git
+    ```
 
-Set up the environment variables using **.env.example** in the files.
+2. Set up the environment variables using **.env.example** in the files.
 
-```bash
-npm i
-```
-```bash
-npm run dev
-```
+3. ```bash
+    npm i
+    ```
+
+4. ```bash
+    npm run dev
+    ```
 
 
 
