@@ -1,5 +1,9 @@
 # CMS Platform ( ADMIN ) :
 
+Note: Hosted Link https://cms-platform-nu.vercel.app/
+
+---
+
 ## Description
   
   1. Admin can create billboard,categories,stores,and different sizes and colors for products
