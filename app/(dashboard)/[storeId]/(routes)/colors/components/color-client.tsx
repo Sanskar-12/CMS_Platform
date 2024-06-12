@@ -22,7 +22,7 @@ const ColorClient = ({ data }: ColorClientProps) => {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title={`Sizes (${data.length})`}
+          title={`Colors (${data.length})`}
           description="Manage color for your store"
         />
         <Button onClick={() => router.push(`/${params.storeId}/colors/new`)}>
