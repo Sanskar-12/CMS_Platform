@@ -22,6 +22,7 @@
   ![Screenshot from 2024-06-12 07-37-36](https://github.com/Sanskar-12/CMS_Platform/assets/114936864/44a8bbd6-5bb4-403a-8384-a1c14b905c68)
 
   3. Categories Section
+     
   ![Screenshot from 2024-06-12 07-37-43](https://github.com/Sanskar-12/CMS_Platform/assets/114936864/839456d6-2f68-42db-9013-4233cdc8ae6d)
 
   4. Sizes Section
@@ -58,8 +59,20 @@
 
 ---
 
-# You can clone this project using the following commands :-
-  ``` git clone 
+# To clone the repository, use the following command:
+
+```bash
+git clone https://github.com/Sanskar-12/CMS_Platform.git
+```
+
+Set up the environment variables using **.env.example** in the files.
+
+```bash
+npm i
+```
+```bash
+npm run dev
+```
 
 
 
